@@ -31,7 +31,6 @@ Premined purposes:
     Swap coins                                     650 000 PWCs
 
 
-
 POS Blocks Rewards:
 
     From block 1 to 18000 : 10 PWCs
@@ -52,3 +51,44 @@ Masternode Rewards (75% FROM POS BLOCKS):
     From block 100001 to 145000 : 41.25 PWCs
     From block 145001 to 200000 : 30 PWCs
     From block 200001 to end : 15 PWCs
+### How to install
+
+Updating Ubuntu system
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+```
+
+Installing new packages
+```sh
+sudo apt-get install -y build-essential libssl-dev libboost-all-dev git libdb5.3++-dev libminiupnpc-dev screen
+```
+
+Creating folder on root structure and give permission
+```sh
+sudo mkdir /wallets
+sudo chmod 777 /wallets
+```
+
+Downloading source code
+```sh
+git clone https://github.com/PawCoin/PawCoinMN.git PawCoin
+cd D3Revival
+```
+
+Changing permission and compiling LevelDB
+```sh
+cd ./src/leveldb
+chmod +x build_detect_platform
+make libleveldb.a libmemenv.a
+cd ../..
+```
+
+Compiling daemon
+```sh
+cd ./src
+make -f makefile.unix
+  or
+make -f makefile.unix "USE_UPNP=-" # without support to UPNP
+```
