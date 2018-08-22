@@ -1,4 +1,4 @@
-PawCoin Project:
+<b>PawCoin Project:</b>
 
 PawCoin Project arises from the need to help aid associations for abandoned dogs aswell as raise awareness in society about the torture, abuse and neglect that some dogs face every day. sadly some dogs are still being abandoned on streets. We believe, we can and must do something about it!
 
@@ -74,7 +74,7 @@ sudo chmod 777 /wallets
 Downloading source code
 ```sh
 git clone https://github.com/PawCoin/PawCoinMN.git PawCoin
-cd D3Revival
+cd PawCoin
 ```
 
 Changing permission and compiling LevelDB
