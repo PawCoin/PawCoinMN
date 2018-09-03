@@ -14,8 +14,8 @@ PawCoin Specs:
     Max Supply:                       43 298 969 PWCs
     Transaction confirmation:         15 blocks
     Mining maturation time:           20 blocks
-    P2P Port:                         33128
-    RPC Port:                         33127
+    P2P Port:                         32390
+    RPC Port:                         32391
     Min Stake                         8 hours
     Premine                           3% + 700 000 to SWAP
 
