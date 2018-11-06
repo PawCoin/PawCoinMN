@@ -77,14 +77,6 @@ git clone https://github.com/PawCoin/PawCoinMN.git PawCoin
 cd PawCoin
 ```
 
-Changing permission and compiling LevelDB
-```sh
-cd ./src/leveldb
-chmod +x build_detect_platform
-make libleveldb.a libmemenv.a
-cd ../..
-```
-
 Compiling daemon
 ```sh
 cd ./src
