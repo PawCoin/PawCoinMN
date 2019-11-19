@@ -1138,6 +1138,8 @@ int64_t GetProofOfWorkReward(int64_t nFees, int nHeight)
         {
             nSubsidy = 1900000 * COIN;  
         }
+   if(nBestHeight >= 435000 && nBestHeight <= 520000){
+      nSubsidy = 5 * COIN;
     }
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d nHeight=%d\n", FormatMoney(nSubsidy), nSubsidy, nHeight);
 
@@ -1163,8 +1165,10 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int nHeight)
       nSubsidy = 55 * COIN;
     } else if(nBestHeight >= 145001 && nBestHeight < 200000){
       nSubsidy = 40 * COIN;
+    } else if(nBestHeight > 412049){
+      nSubsidy = 4 * COIN;
     } else{
-      nSubsidy = 20 * COIN;
+      nSubsidy = 2 * COIN;
     }
     }
 
