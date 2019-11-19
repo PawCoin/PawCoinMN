@@ -1133,16 +1133,11 @@ static CBigNum GetProofOfStakeLimit(int nHeight)
 int64_t GetProofOfWorkReward(int64_t nFees, int nHeight)
 {
     int64_t nSubsidy = 0 * COIN;
-    if (pindexBest->nMoneySupply < MAX_MONEY){
-        if(pindexBest->nHeight == 0) 
-        {
-            nSubsidy = 1900000 * COIN;  
-        }
-   if(nBestHeight > 412049 && nBestHeight <= 520000){
-      nSubsidy = 5 * COIN;
-    }
+    
+    if (pindexBest->nMoneySupply < MAX_MONEY){if(pindexBest->nHeight == 0) {nSubsidy = 1900000 * COIN;}
+    
+    else if(nBestHeight >412049 && nBestHeight <= 520000){nSubsidy = 5 * COIN;}
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d nHeight=%d\n", FormatMoney(nSubsidy), nSubsidy, nHeight);
-
     return nSubsidy + nFees;
 }
 
