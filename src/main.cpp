@@ -1158,20 +1158,12 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int nHeight)
       nSubsidy = 50 * COIN;
     } else if(nBestHeight >= 100001 && nBestHeight < 145000){
       nSubsidy = 55 * COIN;
-    } else if(nBestHeight >= 145001 && nBestHeight < 200000){
-      nSubsidy = 40 * COIN;
-    } else if(nBestHeight > 412049){
+    } else if(nBestHeight >= 412049 && nBestHeight < 800000){
       nSubsidy = 4 * COIN;
     } else{
       nSubsidy = 2 * COIN;
     }
     }
-
-    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d nHeight=%d\n", FormatMoney(nSubsidy), nCoinAge, nHeight);
-
-    return nSubsidy + nFees;
-}
-
 
 static int64_t nTargetTimespan = 20 * 60;  // 20 mins
 
