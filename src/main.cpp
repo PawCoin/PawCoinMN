@@ -1133,14 +1133,11 @@ static CBigNum GetProofOfStakeLimit(int nHeight)
 int64_t GetProofOfWorkReward(int64_t nFees, int nHeight)
 {
     int64_t nSubsidy = 0 * COIN;
-    
-    if (pindexBest->nMoneySupply < MAX_MONEY){if(pindexBest->nHeight == 0) {nSubsidy = 1900000 * COIN;}
-    
-    else if(nBestHeight >412049 && nBestHeight <= 520000){nSubsidy = 5 * COIN;}
+    if(pindexBest->nHeight == 0)  {nSubsidy = 1900000 * COIN;}
+    if(nBestHeight > 412049 && nBestHeight < 550000){nSubsidy = 5 * COIN;}
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d nHeight=%d\n", FormatMoney(nSubsidy), nSubsidy, nHeight);
     return nSubsidy + nFees;
 }
-
 
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int nHeight)
@@ -1158,13 +1155,17 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees, int nHeight)
       nSubsidy = 50 * COIN;
     } else if(nBestHeight >= 100001 && nBestHeight < 145000){
       nSubsidy = 55 * COIN;
-    } else if(nBestHeight >= 412049 && nBestHeight < 800000){
+    } else if(nBestHeight >= 412050 && nBestHeight < 800000){
       nSubsidy = 4 * COIN;
     } else{
       nSubsidy = 2 * COIN;
     }
     }
 
+    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d nHeight=%d\n", FormatMoney(nSubsidy), nCoinAge, nHeight);
+
+    return nSubsidy + nFees;
+}
 static int64_t nTargetTimespan = 20 * 60;  // 20 mins
 
 //
